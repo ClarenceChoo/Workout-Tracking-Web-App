@@ -31,7 +31,7 @@
     <input type="text" id="exercise" placeholder="Exercise Name" required>
     <input type="number" id="sets" placeholder="Sets" min="1" required>
     <input type="number" id="reps" placeholder="Reps" min="1" required>
-    <input type="number" id="weight" placeholder="Weight in KG" min="1" required>
+    <input type="number" id="weight" placeholder="Weight in KG" min="1" step="0.01" required>
     <button type="submit">Add Exercise</button>
   </form>
   
@@ -54,6 +54,10 @@
     </div>
   </div>
   
+  <footer>
+    <p>© <span id="copyrightYear">2025</span> Clarence Choo. All rights reserved.</p>
+  </footer>  
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -237,4 +237,5 @@ function resetDoneStatusIfNewDay() {
       updateLocalStorage();
     }
 }
-  
+
+document.getElementById("copyrightYear").textContent = new Date().getFullYear();

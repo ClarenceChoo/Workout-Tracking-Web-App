@@ -247,4 +247,15 @@ body {
     #daySelector button:nth-child(7) {
         grid-column: 2;
     }
-}  
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 0.9em;
+  color: #333;
+  margin: 0;
+}
