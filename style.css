@@ -213,4 +213,38 @@ body {
     align-items: center;
     margin-left: 5px;
   }
+
+  @media (max-width: 600px) {
+    #workoutForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
   
+    #workoutForm input,
+    #workoutForm button {
+      width: 90%;
+      margin: 5px 0;
+      padding: 10px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    #daySelector {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    
+    #daySelector button {
+        padding: 8px 12px;
+        font-size: 1em;
+    }
+    
+    /* Place the 7th button (Sunday) in the middle column */
+    #daySelector button:nth-child(7) {
+        grid-column: 2;
+    }
+}  
