@@ -250,12 +250,13 @@ body {
 }
 
 footer {
-  position: fixed;
+  position: fixed;      /* Keeps the footer fixed at the bottom */
   bottom: 0;
   left: 0;
-  background-color: #f1f1f1;
+  width: 100%;
+  background: transparent;  /* No background color */
+  z-index: -1;          /* Places the footer behind other elements */
   padding: 10px;
   font-size: 0.9em;
   color: #333;
-  margin: 0;
 }
