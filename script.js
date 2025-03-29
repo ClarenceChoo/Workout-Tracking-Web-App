@@ -1,5 +1,3 @@
-localStorage.clear();
-
 // Define days of the week
 const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
