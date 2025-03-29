@@ -1,0 +1,216 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  /* Day selector styles */
+  #daySelector {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #daySelector button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 1em;
+    
+    cursor: pointer;
+  }
+  
+  #daySelector button.active {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
+  /* Form styles */
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  form input, form button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 1em;
+  }
+  
+  /* Workout list styles */
+  ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  li {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin: 10px auto;
+    padding: 10px;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  li input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black with opacity */
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 400px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  /* Generic Button Styling */
+.modal-content button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0 5px;
+  }
+  
+  .modal-content button:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+  }
+  
+  /* Specific Button Styles */
+  
+  /* Delete Button */
+  button.deleteButton {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0 5px;
+  }
+  button.deleteButton:hover {
+    background-color: #c82333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0 5px;
+  }
+  
+  /* Edit Button */
+  button.editButton {
+    background-color: #17a2b8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0 5px;
+  }
+  button.editButton:hover {
+    background-color: #138496;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0 5px;
+  }
+  
+  /* Modal Save Button */
+  #modalSaveButton {
+    background-color: #28a745;
+  }
+  #modalSaveButton:hover {
+    background-color: #218838;
+  }
+  
+  /* Modal Cancel Button */
+  #modalCancelButton {
+    background-color: #6c757d;
+  }
+  #modalCancelButton:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Semi-transparent background */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .workout-actions {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+  }
+  

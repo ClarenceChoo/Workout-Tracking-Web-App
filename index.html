@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7 Day Workout Routine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>7 Day Workout Routine</h1>
+  
+  <!-- Day Selector -->
+  <div id="daySelector">
+    <button data-day="Monday">Monday</button>
+    <button data-day="Tuesday">Tuesday</button>
+    <button data-day="Wednesday">Wednesday</button>
+    <button data-day="Thursday">Thursday</button>
+    <button data-day="Friday">Friday</button>
+    <button data-day="Saturday">Saturday</button>
+    <button data-day="Sunday">Sunday</button>
+  </div>
+
+  <!-- Rest Day Toggle -->
+  <div id="restDayContainer" style="text-align: center; margin-bottom: 20px;">
+    <input type="checkbox" id="restDayCheckbox">
+    <label for="restDayCheckbox">Rest Day</label>
+  </div>
+  
+  <!-- Workout Form -->
+  <form id="workoutForm">
+    <input type="text" id="exercise" placeholder="Exercise Name" required>
+    <input type="number" id="sets" placeholder="Sets" min="1" required>
+    <input type="number" id="reps" placeholder="Reps" min="1" required>
+    <input type="number" id="weight" placeholder="Weight in KG" min="1" required>
+    <button type="submit">Add Exercise</button>
+  </form>
+  
+  <!-- Workout List / Rest Message -->
+  <ul id="workoutList"></ul>
+  
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Edit Workout</h2>
+      <input type="text" id="modalExercise" placeholder="Exercise Name">
+      <input type="number" id="modalSets" placeholder="Sets">
+      <input type="number" id="modalReps" placeholder="Reps">
+      <input type="number" id="modalWeight" placeholder="Weight">
+      <div style="margin-top: 15px;">
+        <button id="modalSaveButton">Save</button>
+        <button id="modalCancelButton">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
