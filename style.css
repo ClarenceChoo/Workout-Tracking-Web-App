@@ -1,3 +1,9 @@
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -259,4 +265,8 @@ footer {
   padding: 10px;
   font-size: 0.9em;
   color: #333;
+}
+
+#workoutList {
+  margin-bottom: 60px; /* Adjust the value as needed */
 }
