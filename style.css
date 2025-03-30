@@ -287,3 +287,78 @@ footer {
 #workoutList {
   margin-bottom: 60px; /* Adjust the value as needed */
 }
+
+/* Timer display styling */
+#timerDisplay {
+  font-size: 2em;
+  margin: 20px 0;
+}
+
+#openTimer {
+  background-color: #007BFF; /* Blue background */
+  text-align: center;
+  color: #fff;              /* White text */
+  border: none;             /* No border */
+  padding: 10px 20px;       /* Spacing inside the button */
+  font-size: 1.1em;         /* Slightly larger font size */
+  border-radius: 8px;       /* Rounded corners */
+  cursor: pointer;          /* Pointer cursor on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#openTimer:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+#openTimer:active {
+  transform: translateY(0);  /* Reset transform when clicking */
+}
+
+/* Start/Pause Button (toggleTimer) */
+#toggleTimer {
+  background-color: #28a745; /* Green color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#toggleTimer:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: translateY(-2px);
+}
+
+#toggleTimer:active {
+  transform: translateY(0);
+}
+
+/* Pause state: When the button is showing 'Pause', make it red */
+.pause {
+  background-color: #dc3545 !important; /* Red for Pause state */
+}
+
+/* Reset Button (resetTimer) */
+#resetTimer {
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#resetTimer:hover {
+  transform: translateY(-2px);
+}
+
+#resetTimer:active {
+  transform: translateY(0);
+}

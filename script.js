@@ -240,3 +240,79 @@ function resetDoneStatusIfNewDay() {
 }
 
 document.getElementById("copyrightYear").textContent = new Date().getFullYear();
+
+// Modal functionality
+const openTimer = document.getElementById('openTimer'); // Button to open modal (placed elsewhere)
+const timerModal = document.getElementById('timerModal');
+const closeTimer = document.getElementById('closeTimer');
+
+openTimer.addEventListener('click', () => {
+  timerModal.style.display = 'block';
+});
+
+closeTimer.addEventListener('click', () => {
+  timerModal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === timerModal) {
+    timerModal.style.display = 'none';
+  }
+});
+
+// Stopwatch functionality using two buttons
+const timerDisplay = document.getElementById('timerDisplay');
+const toggleTimer = document.getElementById('toggleTimer'); // This button toggles Start/Pause
+const resetTimer = document.getElementById('resetTimer');
+
+let timerInterval = null;
+let elapsedTime = 0; // in milliseconds
+
+function updateDisplay() {
+  const totalSeconds = Math.floor(elapsedTime / 1000);
+  const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+  const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+  const seconds = String(totalSeconds % 60).padStart(2, '0');
+  const hundredths = String(Math.floor((elapsedTime % 1000) / 10)).padStart(2, '0');
+  timerDisplay.innerText = `${hours}:${minutes}:${seconds}.${hundredths}`;
+}
+
+function startStopwatch() {
+  const startTime = Date.now() - elapsedTime;
+  timerInterval = setInterval(() => {
+    elapsedTime = Date.now() - startTime;
+    updateDisplay();
+  }, 10); // Update every 10ms for hundredths of a second
+}
+
+function pauseStopwatch() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+}
+
+function resetStopwatch() {
+  pauseStopwatch();
+  elapsedTime = 0;
+  updateDisplay();
+  toggleTimer.innerText = 'Start'; // Reset toggle button label to Start
+}
+
+// Toggle button event handler
+toggleTimer.addEventListener('click', () => {
+  if (timerInterval === null) {
+    // Timer is not running: start it and change label to Pause
+    startStopwatch();
+    toggleTimer.innerText = 'Pause';
+    toggleTimer.classList.add('pause');
+  } else {
+    // Timer is running: pause it and change label to Start
+    pauseStopwatch();
+    toggleTimer.innerText = 'Start';
+    toggleTimer.classList.remove('pause');
+  }
+});
+
+// Reset button event handler
+resetTimer.addEventListener('click', () => {
+  resetStopwatch();
+});

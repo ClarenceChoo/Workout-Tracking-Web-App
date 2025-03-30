@@ -32,6 +32,25 @@
     <input type="checkbox" id="restDayCheckbox">
     <label for="restDayCheckbox">Rest Day</label>
   </div>
+
+  <div id="timerContainer" style="text-align: center;">
+    <!-- Rest Timer Button -->
+    <button id="openTimer" style="margin-bottom: 10px;">Rest Timer</button>
+  </div>
+
+  <!-- Timer Modal -->
+  <div id="timerModal" class="modal">
+    <div class="modal-content">
+      <span id="closeTimer" class="close">&times;</span>
+      <h2>Rest Timer</h2>
+      <div id="timerDisplay">00:00:00.00</div>
+      <div style="margin-top: 15px;">
+        <!-- Only two buttons: one toggle and one reset -->
+        <button id="toggleTimer">Start</button>
+        <button id="resetTimer">Reset</button>
+      </div>
+    </div>
+  </div>
   
   <!-- Workout Form -->
   <form id="workoutForm">
