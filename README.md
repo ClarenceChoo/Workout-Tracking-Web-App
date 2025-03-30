@@ -33,3 +33,23 @@ Visit the website: https://clarencechoo.github.io/Workout-Tracking-Web-App/
    Click the "Delete" button to remove a workout from the list.
 6. **Rest Day:**  
    Toggle the "Rest Day" checkbox to mark a day as a rest day, which hides the workout form and shows a rest day message.
+
+## How to Add Web App to Home Screen on iOS
+
+If you're using an iPhone or iPad, you can easily add this web app to your home screen for quick access. Follow these steps:
+
+1. **Open Safari:**  
+   Launch the Safari browser on your iOS device and navigate to the website: [https://clarencechoo.github.io/Workout-Tracking-Web-App/]
+
+2. **Tap the Share Icon:**  
+   At the bottom of the screen, tap the **Share** button (a square with an arrow pointing upward).
+
+3. **Select "Add to Home Screen":**  
+   Scroll down (or look through the options) until you find **"Add to Home Screen"** and tap it.
+
+4. **Confirm the App Name:**  
+   A prompt will appear with the default name (which you can change if you wish). Tap **"Add"** in the upper-right corner.
+
+Your web app icon will now appear on your home screen, just like a native app!
+
+*Note: This feature is only available when using Safari on iOS.*
