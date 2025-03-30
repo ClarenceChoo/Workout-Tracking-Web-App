@@ -9,7 +9,7 @@ Visit the website: https://clarencechoo.github.io/Workout-Tracking-Web-App/
 Click the image below to watch the video tutorial.
 
 <a href="https://www.youtube.com/shorts/AjVvvu3cL70" target="_blank">
-  <img src="assets/images/workout-tracker.jpeg" alt="Watch the video" style="width:150px; height:200px;">
+  <img src="assets/images/workout-tracker.jpeg" alt="Watch the video" style="width:50%; height:50%;">
 </a>
 
 ## Features
