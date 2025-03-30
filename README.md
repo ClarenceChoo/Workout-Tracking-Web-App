@@ -6,6 +6,8 @@ A simple, client-side workout tracking web application designed especially for m
 
 Visit the website: https://clarencechoo.github.io/Workout-Tracking-Web-App/
 
+[![Watch the video](https://img.youtube.com/vi/AjVvvu3cL70/0.jpg)](https://www.youtube.com/shorts/AjVvvu3cL70)
+
 ## Features
 
 - **7 Day Routine:**  
