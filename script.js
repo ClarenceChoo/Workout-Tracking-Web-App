@@ -44,7 +44,8 @@ function updateLocalStorage() {
 }
 
 // Default current selected day
-let currentDay = "Monday";
+const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let currentDay = dayNames[new Date().getDay()];
 
 // Render workouts or rest day message for the current day
 function renderWorkouts() {
