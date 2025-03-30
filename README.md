@@ -6,7 +6,11 @@ A simple, client-side workout tracking web application designed especially for m
 
 Visit the website: https://clarencechoo.github.io/Workout-Tracking-Web-App/
 
-[![Watch the video](https://img.youtube.com/vi/AjVvvu3cL70/0.jpg)](https://www.youtube.com/shorts/AjVvvu3cL70)
+Click the image below to watch the video tutorial.
+
+<a href="https://www.youtube.com/shorts/AjVvvu3cL70" target="_blank">
+  <img src="assets/images/workout-tracker.jpeg" alt="Watch the video" style="max-width:100%; height:auto;">
+</a>
 
 ## Features
 
