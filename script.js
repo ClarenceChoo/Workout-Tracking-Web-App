@@ -294,6 +294,7 @@ function resetStopwatch() {
   pauseStopwatch();
   elapsedTime = 0;
   updateDisplay();
+  toggleTimer.classList.remove('pause');
   toggleTimer.innerText = 'Start'; // Reset toggle button label to Start
 }
 
