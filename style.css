@@ -11,8 +11,24 @@ body {
     background-color: #f9f9f9;
   }
   
+header
+{
+  text-align: center;
+}
+
   h1 {
     text-align: center;
+  }
+
+  #visitor
+  {
+    text-align: center;
+    margin: 5px;
+  }
+
+  header img
+  {
+    margin-bottom: 5px;
   }
   
   /* Day selector styles */

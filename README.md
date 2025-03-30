@@ -1,4 +1,4 @@
-# 7 Day Workout Tracker
+# 7 Days Workout Tracker
 
 A simple, client-side workout tracking web application designed especially for mobile devices. The app lets you plan and track your weekly workout routines, mark exercises as completed, and manage rest days. All data is stored locally on your device using the browser's localStorage.
 
