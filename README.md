@@ -20,6 +20,8 @@ Click the image below to watch the video tutorial.
   Mark any day as a rest day to hide the workout form and display a rest day message.
 - **Add, Edit, and Delete Workouts:**  
   Easily manage your workouts with options to add new entries, edit existing ones using a modal, or delete them.
+- **Tracking Rest Time:**  
+   Conveniently track your rest time with the stopwatch feature.
 - **Mobile Responsive Design:**  
   Optimized for mobile screens with a vertically stacked form layout and a responsive day selector.
 - **LocalStorage Persistence:**  
@@ -39,6 +41,8 @@ Click the image below to watch the video tutorial.
    Click the "Delete" button to remove a workout from the list.
 6. **Rest Day:**  
    Toggle the "Rest Day" checkbox to mark a day as a rest day, which hides the workout form and shows a rest day message.
+7. **Stopwatch Rest Timer:**  
+   Click the "Rest Timer" button to open up a stopwatch modal, capable of starting, pausing and resetting your rest time.
 
 ## How to Add Web App to Home Screen on iOS
 
