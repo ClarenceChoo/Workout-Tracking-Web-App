@@ -1,6 +1,6 @@
 # 7 Days Workout Tracker
 
-A simple, client-side workout tracking web application designed especially for mobile devices. The app lets you plan and track your weekly workout routines, mark exercises as completed, and manage rest days. All data is stored locally on your device using the browser's localStorage.
+A simple, client-side workout tracking web application designed especially for mobile devices. The app lets you plan and track your weekly workout routines, mark exercises as completed, and manage rest days. Additionally, you can now track both strength and cardio workouts separately. All data is stored locally on your device using the browser's localStorage.
 
 ## Live Demo
 
@@ -20,6 +20,8 @@ Click the image below to watch the video tutorial.
   Mark any day as a rest day to hide the workout form and display a rest day message.
 - **Add, Edit, and Delete Workouts:**  
   Easily manage your workouts with options to add new entries, edit existing ones using a modal, or delete them.
+- **Separate Strength & Cardio Workouts:**
+   Track strength workouts (sets, reps, weight) and cardio workouts (exercise name, duration, distance) independently.
 - **Tracking Rest Time:**  
    Conveniently track your rest time with the stopwatch feature.
 - **Mobile Responsive Design:**  
@@ -32,7 +34,8 @@ Click the image below to watch the video tutorial.
 1. **Select a Day:**  
    Use the day selector buttons to choose which day's workout you want to manage.
 2. **Add a Workout:**  
-   Fill out the form with the exercise name, number of sets, reps, and weight, then click "Add Exercise."
+   - **Strength Workouts:** Fill out the strength form with the exercise name, number of sets, reps, and weight, then click "Add Exercise".  
+   - **Cardio Workouts:** Switch to the cardio form using the toggle buttons, then fill out the exercise name, duration (minutes and seconds), and distance, and click "Add Exercise".
 3. **Mark as Done:**  
    Check the box next to a workout to mark it as completed.
 4. **Edit a Workout:**  

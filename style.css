@@ -9,6 +9,7 @@ body {
     margin: 20px;
     padding-bottom: 80px;
     background-color: #f9f9f9;
+    text-align: center;
   }
   
 header
@@ -238,7 +239,8 @@ header
   }
 
   @media (max-width: 600px) {
-    #workoutForm {
+    #workoutForm,
+    #cardioForm {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -246,7 +248,9 @@ header
     }
   
     #workoutForm input,
-    #workoutForm button {
+    #workoutForm button,
+    #cardioForm input,
+    #cardioForm button {
       width: 90%;
       margin: 5px 0;
       padding: 10px;
@@ -361,4 +365,37 @@ footer {
 
 #resetTimer:active {
   transform: translateY(0);
+}
+
+#exerciseType {
+  display: inline-flex;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+#exerciseType button {
+  border: none;
+  background: #f0f0f0;
+  padding: 10px 20px;
+  cursor: pointer;
+  outline: none;
+  flex: 1;              /* Ensures equal width if desired */
+}
+
+/* Optional: add a dividing border between buttons */
+#exerciseType button:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+/* Hover effect */
+#exerciseType button:hover {
+  background: #ddd;
+}
+
+#exerciseType button.active
+{
+  background-color: #007BFF;
+  color: #fff;
 }

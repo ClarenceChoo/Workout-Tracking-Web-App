@@ -33,6 +33,12 @@
     <label for="restDayCheckbox">Rest Day</label>
   </div>
 
+  <!-- Selection of type of exercise -->
+  <div id="exerciseType" >
+    <button id="strengthBtn" class="active">Strength</button>
+    <button id="cardioBtn">Cardio</button>
+  </div>
+
   <div id="timerContainer" style="text-align: center;">
     <!-- Rest Timer Button -->
     <button id="openTimer" style="margin-bottom: 10px;">Rest Timer</button>
@@ -61,24 +67,50 @@
     <button type="submit">Add Exercise</button>
   </form>
   
+  <!-- Cardio Workout Form (hidden by default) -->
+  <form id="cardioForm" style="display: none;">
+    <input type="text" id="cardioExercise" placeholder="Exercise Name" required>
+    <input type="number" id="cardioDurationMinutes" placeholder="Minutes" min="1" required>
+    <input type="number" id="cardioDurationSeconds" placeholder="Seconds" min="1" required>
+    <input type="number" id="cardioDistance" placeholder="Distance (km)" min="0.001" step="0.001" required>
+    <button type="submit">Add Exercise</button>
+  </form>
+
   <!-- Workout List / Rest Message -->
   <ul id="workoutList"></ul>
   
-  <!-- Edit Modal -->
-  <div id="editModal" class="modal">
-    <div class="modal-content">
-      <span id="closeModal" class="close">&times;</span>
-      <h2>Edit Workout</h2>
-      <input type="text" id="modalExercise" placeholder="Exercise Name">
-      <input type="number" id="modalSets" min="1" placeholder="Sets">
-      <input type="number" id="modalReps" min="1" placeholder="Reps">
-      <input type="number" id="modalWeight" min="1" step="0.01" placeholder="Weight">
-      <div style="margin-top: 15px;">
-        <button id="modalSaveButton">Save</button>
-        <button id="modalCancelButton">Cancel</button>
-      </div>
+  <!-- Strength Edit Modal -->
+<div id="strengthEditModal" class="modal">
+  <div class="modal-content">
+    <span id="closeStrengthModal" class="close">&times;</span>
+    <h2>Edit Strength Workout</h2>
+    <input type="text" id="modalStrengthExercise" placeholder="Exercise Name">
+    <input type="number" id="modalStrengthSets" min="1" placeholder="Sets">
+    <input type="number" id="modalStrengthReps" min="1" placeholder="Reps">
+    <input type="number" id="modalStrengthWeight" min="1" step="0.01" placeholder="Weight">
+    <div style="margin-top: 15px;">
+      <button id="modalStrengthSaveButton">Save</button>
+      <button id="modalStrengthCancelButton">Cancel</button>
     </div>
   </div>
+</div>
+
+<!-- Cardio Edit Modal -->
+<div id="cardioEditModal" class="modal">
+  <div class="modal-content">
+    <span id="closeCardioModal" class="close">&times;</span>
+    <h2>Edit Cardio Workout</h2>
+    <input type="text" id="modalCardioExercise" placeholder="Exercise Name">
+    <input type="number" id="modalCardioMinutes" min="0" placeholder="Minutes">
+    <input type="number" id="modalCardioSeconds" min="0" placeholder="Seconds">
+    <input type="number" id="modalCardioDistance" min="0.1" step="0.1" placeholder="Distance (km)">
+    <div style="margin-top: 15px;">
+      <button id="modalCardioSaveButton">Save</button>
+      <button id="modalCardioCancelButton">Cancel</button>
+    </div>
+  </div>
+</div>
+
   
   <footer>
     <p>© <span id="copyrightYear">2025</span> Clarence Choo</p>
