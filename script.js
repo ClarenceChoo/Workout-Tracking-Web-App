@@ -55,16 +55,27 @@ function loadWeeklyWorkouts() {
   const storedData = localStorage.getItem("weeklyWorkouts");
   if (storedData) {
     weeklyWorkouts = JSON.parse(storedData);
-    // Ensure each day has the new properties:
-    daysOfWeek.forEach(day => {
+    
+    // Loop through each day and check if the old structure exists.
+    // Assume that if the 'strength' property is missing but 'workouts' exists,
+    // then the old structure is in use.
+    for (const day in weeklyWorkouts) {
+      if (!weeklyWorkouts[day].strength && weeklyWorkouts[day].workouts) {
+        // Convert old 'workouts' array to the new structure:
+        weeklyWorkouts[day].strength = weeklyWorkouts[day].workouts;
+        weeklyWorkouts[day].cardio = [];  // Initialize cardio array as empty
+        delete weeklyWorkouts[day].workouts;
+      }
+      // Ensure that both 'strength' and 'cardio' exist.
       if (!weeklyWorkouts[day].strength) {
         weeklyWorkouts[day].strength = [];
       }
       if (!weeklyWorkouts[day].cardio) {
         weeklyWorkouts[day].cardio = [];
       }
-    });
+    }
   } else {
+    // Initialize new data structure if nothing is in localStorage
     daysOfWeek.forEach(day => {
       weeklyWorkouts[day] = {
         strength: [],
