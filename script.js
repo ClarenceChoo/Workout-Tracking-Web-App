@@ -60,7 +60,7 @@ function loadWeeklyWorkouts() {
     // Assume that if the 'strength' property is missing but 'workouts' exists,
     // then the old structure is in use.
     for (const day in weeklyWorkouts) {
-      if (!weeklyWorkouts[day].strength && weeklyWorkouts[day].workouts) {
+      if (weeklyWorkouts[day].strength && weeklyWorkouts[day].workouts) {
         // Convert old 'workouts' array to the new structure:
         weeklyWorkouts[day].strength = weeklyWorkouts[day].workouts;
         weeklyWorkouts[day].cardio = [];  // Initialize cardio array as empty
@@ -180,7 +180,10 @@ window.addEventListener("load", () => {
   resetDoneStatusIfNewDay();
   renderWorkouts();
   updateDaySelector();
-  showStrength(); // Default to strength form on load
+  // Only call showStrength() if it's not a rest day:
+  if (!weeklyWorkouts[currentDay].isRestDay) {
+    showStrength(); // By default set to strength form
+  }
 });
 
 // ----- Day Selector & Rest Day Toggle -----
