@@ -60,7 +60,7 @@ function loadWeeklyWorkouts() {
     // Assume that if the 'strength' property is missing but 'workouts' exists,
     // then the old structure is in use.
     for (const day in weeklyWorkouts) {
-      if (weeklyWorkouts[day].strength && weeklyWorkouts[day].workouts) {
+      if (!weeklyWorkouts[day].strength && weeklyWorkouts[day].workouts) {
         // Convert old 'workouts' array to the new structure:
         weeklyWorkouts[day].strength = weeklyWorkouts[day].workouts;
         weeklyWorkouts[day].cardio = [];  // Initialize cardio array as empty
