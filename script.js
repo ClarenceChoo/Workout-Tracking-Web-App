@@ -178,12 +178,12 @@ function updateDaySelector() {
 window.addEventListener("load", () => {
   loadWeeklyWorkouts();
   resetDoneStatusIfNewDay();
-  renderWorkouts();
   updateDaySelector();
   // Only call showStrength() if it's not a rest day:
   if (!weeklyWorkouts[currentDay].isRestDay) {
     showStrength(); // By default set to strength form
   }
+  renderWorkouts();
 });
 
 // ----- Day Selector & Rest Day Toggle -----
