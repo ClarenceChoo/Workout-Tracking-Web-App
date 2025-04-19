@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login / Sign Up</title>
+  <link rel="stylesheet" href="./styles/auth.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Workout App</h2>
+
+    <div class="toggle-auth">
+      <button id="showLogin" data-target="loginForm" class="active">Log In</button>
+      <button id="showSignup" data-target="signupForm">Sign Up</button>
+    </div>
+
+    <form id="loginForm" class="auth-form">
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit" class="submit">Log In</button>
+      <p class="error" id="loginError"></p>
+      <p class="forgot">
+        <a href="#" id="showReset" data-target="resetForm">Forgot Password?</a>
+      </p>
+    </form>
+
+    <form id="signupForm" class="auth-form hidden">
+      <input type="email" id="signupEmail" placeholder="Email" required />
+      <input type="password" id="signupPassword" placeholder="Password" required />
+      <ul id="passwordPolicyList" class="password-policy-list">
+        <li id="policy-length" class="invalid">At least 8 characters</li>
+        <li id="policy-number" class="invalid">Contains at least one number (0-9)</li>
+        <li id="policy-special" class="invalid">Contains at least one special character (!@#$%^&*)</li>
+      </ul>
+      <button type="submit" class="submit">Sign Up</button>
+      <p class="error" id="signupError"></p>
+    </form>
+
+    <form id="resetForm" class="auth-form hidden">
+      <input type="email" id="resetEmail" placeholder="Enter your email" required
+             pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$"
+             title="Enter a valid email" />
+      <button type="submit" class="btn-submit">Send Reset Link</button>
+      <p class="error" id="resetError"></p>
+      <p class="info"  id="resetInfo"></p>
+      <p class="back">
+        <a href="#" id="backToLogin" data-target="loginForm">Back to Log In</a>
+      </p>
+    </form>
+
+  </div>
+
+  <script type="module" src="./js/auth.js" defer></script>
+</body>
+</html>

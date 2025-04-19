@@ -399,3 +399,26 @@ footer {
   background-color: #007BFF;
   color: #fff;
 }
+
+/* Logout Button Snippet */
+.btn-logout {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: var(--danger);
+  border: 2px solid var(--danger);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: rgba(220, 53, 69, 0.1);
+  /* text color remains var(--danger) */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}

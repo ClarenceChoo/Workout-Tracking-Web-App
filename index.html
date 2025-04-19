@@ -6,17 +6,16 @@
   <meta name="apple-mobile-web-app-title" content="7 Days Workout Routine">
   <title>7 Days Workout Routine</title>
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/app-icon.png">
-  <link rel="stylesheet" href="style.css">
-</head>
+  <link rel="stylesheet" href="./styles/style.css">
+  </head>
 <body>
+
   <header>
     <h1>7 Days Workout Routine</h1>
     <p id="visitor">Total Visitors: </p>
-    <!-- hitwebcounter Code START -->
     <img src="https://hitwebcounter.com/counter/counter.php?page=20011456&style=0011&nbdigits=5&type=page&initCount=0" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>
   </header>
-  
-  <!-- Day Selector -->
+
   <div id="daySelector">
     <button data-day="Monday">Monday</button>
     <button data-day="Tuesday">Tuesday</button>
@@ -27,38 +26,32 @@
     <button data-day="Sunday">Sunday</button>
   </div>
 
-  <!-- Rest Day Toggle -->
   <div id="restDayContainer" style="text-align: center; margin-bottom: 20px;">
     <input type="checkbox" id="restDayCheckbox">
     <label for="restDayCheckbox">Rest Day</label>
   </div>
 
-  <!-- Selection of type of exercise -->
   <div id="exerciseType" >
     <button id="strengthBtn" class="active">Strength</button>
     <button id="cardioBtn">Cardio</button>
   </div>
 
   <div id="timerContainer" style="text-align: center;">
-    <!-- Rest Timer Button -->
     <button id="openTimer" style="margin-bottom: 10px;">Rest Timer</button>
   </div>
 
-  <!-- Timer Modal -->
   <div id="timerModal" class="modal">
     <div class="modal-content">
       <span id="closeTimer" class="close">&times;</span>
       <h2>Rest Timer</h2>
       <div id="timerDisplay">00:00:00.00</div>
       <div style="margin-top: 15px;">
-        <!-- Only two buttons: one toggle and one reset -->
         <button id="toggleTimer">Start</button>
         <button id="resetTimer">Reset</button>
       </div>
     </div>
   </div>
-  
-  <!-- Workout Form -->
+
   <form id="workoutForm">
     <input type="text" id="exercise" placeholder="Exercise Name" required>
     <input type="number" id="sets" placeholder="Sets" min="1" required>
@@ -66,21 +59,16 @@
     <input type="number" id="weight" placeholder="Weight in KG" min="1" step="0.01" required>
     <button type="submit">Add Exercise</button>
   </form>
-  
-  <!-- Cardio Workout Form (hidden by default) -->
+
   <form id="cardioForm" style="display: none;">
     <input type="text" id="cardioExercise" placeholder="Exercise Name" required>
-    <input type="number" id="cardioDurationMinutes" placeholder="Minutes" min="1" required>
-    <input type="number" id="cardioDurationSeconds" placeholder="Seconds" min="1" required>
-    <input type="number" id="cardioDistance" placeholder="Distance (km)" min="0.001" step="0.001" required>
+    <input type="number" id="cardioDurationMinutes" placeholder="Minutes" min="0" required> <input type="number" id="cardioDurationSeconds" placeholder="Seconds" min="0" required> <input type="number" id="cardioDistance" placeholder="Distance (km)" min="0.001" step="0.001" required>
     <button type="submit">Add Exercise</button>
   </form>
 
-  <!-- Workout List / Rest Message -->
   <ul id="workoutList"></ul>
-  
-  <!-- Strength Edit Modal -->
-<div id="strengthEditModal" class="modal">
+
+  <div id="strengthEditModal" class="modal">
   <div class="modal-content">
     <span id="closeStrengthModal" class="close">&times;</span>
     <h2>Edit Strength Workout</h2>
@@ -95,7 +83,6 @@
   </div>
 </div>
 
-<!-- Cardio Edit Modal -->
 <div id="cardioEditModal" class="modal">
   <div class="modal-content">
     <span id="closeCardioModal" class="close">&times;</span>
@@ -103,19 +90,20 @@
     <input type="text" id="modalCardioExercise" placeholder="Exercise Name">
     <input type="number" id="modalCardioMinutes" min="0" placeholder="Minutes">
     <input type="number" id="modalCardioSeconds" min="0" placeholder="Seconds">
-    <input type="number" id="modalCardioDistance" min="0.1" step="0.1" placeholder="Distance (km)">
-    <div style="margin-top: 15px;">
+    <input type="number" id="modalCardioDistance" min="0.001" step="0.001" placeholder="Distance (km)"> <div style="margin-top: 15px;">
       <button id="modalCardioSaveButton">Save</button>
       <button id="modalCardioCancelButton">Cancel</button>
     </div>
   </div>
 </div>
 
-  
+
   <footer>
     <p>© <span id="copyrightYear">2025</span> Clarence Choo</p>
-  </footer>  
+  </footer>
 
-  <script src="script.js"></script>
+  <button id="logoutBtn" class="btn-logout">Log Out</button>
+
+  <script type="module" src="./js/script.js"></script>
 </body>
 </html>

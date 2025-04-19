@@ -1,0 +1,230 @@
+/* styles/auth.css */
+
+:root {
+  --primary: #007BFF; /* Blue for main actions */
+  --accent: #17A2B8;  /* Teal/Cyan for info or secondary actions */
+  --danger: #dc3545;  /* Red for errors */
+  --success: #28a745; /* Green for success/valid states */
+  --bg: #f9f9f9;       /* Light background */
+  --text: #333;       /* Default text color */
+  --light-text: #555; /* Lighter text */
+  --border-color: #ccc; /* Standard border */
+  --container-bg: #fff; /* Container background */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  text-align: center;
+  margin: 20px; /* Add some space around the container */
+  min-height: calc(100vh - 40px); /* Ensure body takes height */
+  display: flex;
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+}
+
+.auth-container {
+  background: var(--container-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* Style for the H2 title (used in HTML) */
+h2 {
+  margin-bottom: 1rem; /* Adjusted spacing */
+  color: var(--text);
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* Style for .logo class (if you decide to use <div class="logo"> instead of <h2>) */
+.logo {
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  font-size: 1.75rem;
+  letter-spacing: 1px;
+  font-weight: bold; /* Added */
+}
+
+
+.toggle-auth {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden; /* Ensures inner radius clipping */
+  margin-bottom: 1.5rem; /* Increased spacing */
+  margin-top: 10px;
+}
+
+.toggle-auth button {
+  border: none;
+  background: #f0f0f0;
+  padding: 10px 20px;
+  cursor: pointer;
+  outline: none;
+  flex: 1; /* Make buttons share space equally */
+  font-size: 0.95rem; /* Slightly adjusted */
+  color: var(--light-text);
+  transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition */
+}
+
+.toggle-auth button.active {
+  background-color: var(--primary);
+  color: #fff; /* White text on active */
+}
+
+.toggle-auth button:not(.active):hover {
+  background: #e2e6ea;
+  color: var(--text);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* Add space between form elements */
+}
+
+/* *** ADDED: Rule to hide inactive forms *** */
+.auth-form.hidden {
+  display: none;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+  margin: 0 auto; /* Center input if container is wider */
+  padding: 12px; /* Increased padding */
+  font-size: 1em;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  width: 100%; /* Use full width */
+}
+/* Add focus style for accessibility */
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus {
+    border-color: var(--primary);
+    outline: 2px solid transparent; /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Custom focus ring */
+}
+
+
+/* Base button styles (used by .submit and .btn-submit) */
+.submit, .btn-submit {
+  margin: 12px auto 0;
+  padding: 12px 24px;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  width: 100%; /* Make buttons full width */
+}
+
+/* Specific color for main submit */
+.submit {
+  background: var(--primary);
+}
+.submit:hover {
+  background: #0056b3; /* Darker primary */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific color for reset button */
+.btn-submit {
+  background: var(--accent); /* Use accent color for reset */
+}
+.btn-submit:hover {
+   background: #138496; /* Darker accent */
+   transform: translateY(-2px);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.error {
+  color: var(--danger);
+  font-size: 0.875rem;
+  min-height: 1.25rem; /* Prevent layout jumps */
+  margin-top: 0.5rem;
+  text-align: left; /* Align text left for readability */
+}
+
+/* *** ADDED: Styles for info messages *** */
+.info {
+  color: var(--accent);
+  font-size: 0.875rem;
+  min-height: 1.25rem; /* Prevent layout jumps */
+  margin-top: 0.5rem;
+  text-align: left; /* Align text left */
+}
+
+/* *** ADDED: Styles for forgot/back links *** */
+.forgot, .back {
+  font-size: 0.9em;
+  margin-top: 1rem; /* More space above */
+}
+.forgot { text-align: right; }
+.back { text-align: left; }
+
+.forgot a, .back a {
+  color: var(--primary);
+  text-decoration: none;
+}
+.forgot a:hover, .back a:hover {
+  text-decoration: underline;
+}
+
+/* Password Policy List */
+.password-policy-list {
+  list-style: none; /* Remove default bullets */
+  text-align: left;
+  padding-left: 5px; /* Slight indent */
+  margin: 10px 0;  /* Adjusted margin */
+  /* max-width: 300px; /* Let it take available width */
+}
+.password-policy-list li {
+  margin-bottom: 0.5rem;
+  transition: color 0.2s ease;
+  font-size: 0.85rem; /* Slightly smaller */
+  color: var(--light-text); /* Default color */
+}
+/* Add visual icons (optional but recommended) */
+.password-policy-list li::before {
+    content: '❌';
+    display: inline-block; /* Allows margin */
+    margin-right: 8px;
+    color: var(--danger); /* Default to invalid */
+}
+.password-policy-list li.valid::before {
+    content: '✅';
+    color: var(--success);
+}
+
+/* Style text based on validity */
+.password-policy-list li.invalid { color: var(--danger); }
+.password-policy-list li.valid   { color: var(--success); }
+
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  .auth-container {
+      padding: 1.5rem;
+      margin: 10px; /* Adjust margin for small screens */
+  }
+  h2 { font-size: 1.5rem; }
+  .toggle-auth button { font-size: 0.9rem; padding: 8px 15px;}
+  .submit, .btn-submit { padding: 10px 20px; font-size: 0.95em;}
+}
