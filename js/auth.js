@@ -1,17 +1,15 @@
-// Import Firebase modules
+// Import Firebase modules (keep these)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  sendPasswordResetEmail,
-  sendEmailVerification
+  sendPasswordResetEmail
+  // Removed: sendEmailVerification
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
-// --- Firebase Configuration ---
-// IMPORTANT: Consider using environment variables or a configuration file
-// for sensitive keys in a real application, rather than hardcoding.
+// --- Firebase Configuration --- (keep this)
 const firebaseConfig = {
   apiKey: "AIzaSyDPO_KiG5Xm4cbc2gEe7IxvwKELa-p5BFU",
   authDomain: "workout-app-3b408.firebaseapp.com",
@@ -24,7 +22,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// --- DOM Element Selection ---
+// --- DOM Element Selection --- (keep this)
 const loginForm     = document.getElementById("loginForm");
 const signupForm    = document.getElementById("signupForm");
 const resetForm     = document.getElementById("resetForm");
@@ -47,12 +45,12 @@ const showResetLink  = document.getElementById("showReset");
 const backToLoginLink = document.getElementById("backToLogin");
 const toggleButtons = [showLoginBtn, showSignupBtn]; // Group toggle buttons
 
-// Password Policy Elements
+// Password Policy Elements (keep this)
 const policyLengthEl  = document.getElementById("policy-length");
 const policyNumberEl  = document.getElementById("policy-number");
 const policySpecialEl = document.getElementById("policy-special");
 
-// --- Utility Functions ---
+// --- Utility Functions --- (keep these)
 
 /**
  * Hides all auth forms, shows the specified form, and updates toggle button active states.
@@ -109,9 +107,9 @@ function mapFirebaseError(error) {
     }
 }
 
-// --- Event Listeners ---
+// --- Event Listeners --- (Modify signup and login submissions)
 
-// Form Visibility Toggles
+// Form Visibility Toggles (keep this)
 showLoginBtn.addEventListener("click", () => showAuthForm(showLoginBtn.dataset.target));
 showSignupBtn.addEventListener("click", () => showAuthForm(showSignupBtn.dataset.target));
 showResetLink.addEventListener("click", (e) => {
@@ -123,7 +121,7 @@ backToLoginLink.addEventListener("click", (e) => {
     showAuthForm(backToLoginLink.dataset.target);
 });
 
-// Password Policy Real-time Check
+// Password Policy Real-time Check (keep this)
 signupPasswordInput.addEventListener("input", (e) => {
   const password = e.target.value;
   updatePolicyVisual(policyLengthEl, password.length >= 8);
@@ -131,7 +129,7 @@ signupPasswordInput.addEventListener("input", (e) => {
   updatePolicyVisual(policySpecialEl, /[!@#$%^&*]/.test(password));
 });
 
-// Sign Up Form Submission
+// Sign Up Form Submission (MODIFIED)
 signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   signupErrorEl.textContent = "";
@@ -145,18 +143,26 @@ signupForm.addEventListener("submit", async (e) => {
   }
 
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    await sendEmailVerification(userCredential.user);
-    signupErrorEl.textContent = "Account created! Check your inbox for a verification link.";
+
+    // Create user
+    await createUserWithEmailAndPassword(auth, email, password);
+
+    // Updated success message (no email verification needed)
+    signupErrorEl.textContent = "Account created successfully! You can now log in.";
     signupForm.reset();
-    // Optionally switch back to login view
+
+    // Optionally switch back to login view after successful signup
     // showAuthForm("loginForm");
+
+    // Log success
+    console.log("User signed up successfully with email:", email);
+
   } catch (error) {
     signupErrorEl.textContent = mapFirebaseError(error);
   }
 });
 
-// Login Form Submission
+// Login Form Submission (MODIFIED)
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   loginErrorEl.textContent = "";
@@ -165,18 +171,16 @@ loginForm.addEventListener("submit", async (e) => {
 
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    if (!userCredential.user.emailVerified) {
-        loginErrorEl.textContent = "Please verify your email address first. Check your inbox.";
-        await auth.signOut(); // Keep user signed out
-        return;
-    }
-    // onAuthStateChanged handles redirect
+
+    // onAuthStateChanged listener will handle the redirect to index.html automatically now
+    console.log("User signed in successfully:", userCredential.user.uid); // Log success
+
   } catch (error) {
     loginErrorEl.textContent = mapFirebaseError(error);
   }
 });
 
-// Password Reset Form Submission
+// Password Reset Form Submission (keep this)
 resetForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   resetErrorEl.textContent = "";
@@ -192,30 +196,25 @@ resetForm.addEventListener("submit", async (e) => {
   }
 });
 
-// --- Authentication State Observer ---
+// --- Authentication State Observer --- (MODIFIED)
 onAuthStateChanged(auth, user => {
-  if (user && user.emailVerified) { // Ensure user exists and is verified
-    console.log("User logged in and verified:", user.uid);
-    window.location.replace("index.html"); // Redirect to main app
-  } else if (user && !user.emailVerified) {
-    // User exists but hasn't verified email yet. Keep them on auth page.
-    console.log("User logged in but email not verified:", user.uid);
-    // Optionally show a specific message or keep the login form visible
-    showAuthForm("loginForm"); // Ensure login form is shown
-    // Display verification needed message if not already shown by login attempt
-    if (!loginErrorEl.textContent.includes("verify your email")) {
-         loginErrorEl.textContent = "Please check your inbox to verify your email address before logging in.";
-    }
-  }
-   else {
-    // User is signed out
-    console.log("User logged out or not logged in.");
-    // Ensure the login form is shown by default
+  // Check if a user object exists (they are logged in)
+  if (user) { 
+    console.log("User logged in:", user.uid); // Updated log message
+    // Redirect to main app only if user object exists
+    // Note: If using the single-page approach, you'd show #app-content here instead of redirecting
+    window.location.replace("index.html"); // Assuming separate index.html and this code is on login.html
+
+  } else {
+    // User is signed out or not logged in.
+    // This else block now handles *all* cases where there is no logged-in user object.
+    console.log("User logged out or not logged in."); // Updated log message
+    // Ensure the login form is shown by default when not logged in
     showAuthForm("loginForm");
   }
 });
 
-// --- Initial Setup ---
+// --- Initial Setup --- (keep this)
 // The onAuthStateChanged listener above handles showing the correct
 // form initially based on login state. If the user is not logged in,
 // it defaults to showing the login form.
