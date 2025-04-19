@@ -73,6 +73,9 @@ const timerDisplay = document.getElementById('timerDisplay');
 const toggleTimer = document.getElementById('toggleTimer');
 const resetTimer = document.getElementById('resetTimer');
 
+// Get a reference to your main content container
+const appContent = document.getElementById('app-content');
+
 // Global state for editing
 let currentEditKey = null; // Now storing Firebase key instead of index
 let currentEditType = null; // 'strength' or 'cardio'
@@ -99,6 +102,10 @@ onAuthStateChanged(auth, user => {
     // User is signed in
     userUid = user.uid;
     console.log("User signed in:", userUid);
+
+    if (appContent) { // Check if the element exists
+        appContent.style.display = 'block'; // Or 'flex', 'grid', etc., depending on your layout
+    }
 
     // --- Load data from Firebase and set up listener ---
     const userWorkoutsRef = ref(db, 'users/' + userUid + '/weeklyWorkouts');
