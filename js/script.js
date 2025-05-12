@@ -104,7 +104,7 @@ onAuthStateChanged(auth, user => {
     console.log("User signed in:", userUid);
 
     if (appContent) { // Check if the element exists
-        appContent.style.display = 'block'; // Or 'flex', 'grid', etc., depending on your layout
+        appContent.style.display = 'block';
     }
 
     // --- Load data from Firebase and set up listener ---
@@ -664,3 +664,45 @@ document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
 // --- Visitor Counter (Keep as is, it's external) ---
 // The visitor counter is handled by the external image link. No changes needed here.
+
+// Load preset exercises from JSON
+let presetExercises = [];
+fetch('./assets/data/wger_exercises.json')
+  .then(res => res.json())
+  .then(data => {
+    presetExercises = data;
+    populatePresetLists();
+  })
+  .catch(err => console.error('Failed to load presets:', err));
+
+  function populatePresetLists() {
+    const strengthList = document.getElementById('presetStrengthExercises');
+    const cardioList = document.getElementById('presetCardioExercises');
+  
+    const strengthSeen = new Set();
+    const cardioSeen = new Set();
+  
+    presetExercises.forEach(ex => {
+      const name = ex.name?.trim();
+      const category = ex.category?.toLowerCase();
+  
+      if (!name) return; // Skip invalid entries
+  
+      if (category === 'cardio') {
+        if (!cardioSeen.has(name)) {
+          cardioSeen.add(name);
+          const opt = document.createElement('option');
+          opt.value = name;
+          cardioList.appendChild(opt);
+        }
+      } else {
+        if (!strengthSeen.has(name)) {
+          strengthSeen.add(name);
+          const opt = document.createElement('option');
+          opt.value = name;
+          strengthList.appendChild(opt);
+        }
+      }
+    });
+  }
+  
